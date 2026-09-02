@@ -34,6 +34,7 @@ partial class Form1
         label1 = new Label();
         label2 = new Label();
         tableLayoutPanel1 = new TableLayoutPanel();
+        tableLayoutPanel1.SuspendLayout();
         SuspendLayout();
         // 
         // button3
@@ -41,9 +42,9 @@ partial class Form1
         button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         button3.BackColor = Color.IndianRed;
         button3.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button3.Location = new Point(206, 310);
+        button3.Location = new Point(73, 351);
         button3.Name = "button3";
-        button3.Size = new Size(285, 89);
+        button3.Size = new Size(285, 81);
         button3.TabIndex = 2;
         button3.Text = "Salir";
         button3.UseVisualStyleBackColor = false;
@@ -54,9 +55,9 @@ partial class Form1
         button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         button1.BackColor = SystemColors.ActiveCaption;
         button1.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button1.Location = new Point(203, 72);
+        button1.Location = new Point(70, 177);
         button1.Name = "button1";
-        button1.Size = new Size(288, 88);
+        button1.Size = new Size(288, 81);
         button1.TabIndex = 3;
         button1.Text = "Entrenar";
         button1.UseVisualStyleBackColor = false;
@@ -67,9 +68,9 @@ partial class Form1
         button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         button2.BackColor = Color.FromArgb(128, 255, 128);
         button2.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button2.Location = new Point(206, 195);
+        button2.Location = new Point(73, 264);
         button2.Name = "button2";
-        button2.Size = new Size(285, 84);
+        button2.Size = new Size(285, 81);
         button2.TabIndex = 4;
         button2.Text = "Jugar";
         button2.UseVisualStyleBackColor = false;
@@ -78,7 +79,7 @@ partial class Form1
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(3, 431);
+        label1.Location = new Point(725, 522);
         label1.Name = "label1";
         label1.Size = new Size(341, 20);
         label1.TabIndex = 5;
@@ -89,8 +90,9 @@ partial class Form1
         // 
         label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         label2.AutoSize = true;
+        tableLayoutPanel1.SetColumnSpan(label2, 2);
         label2.Font = new Font("Showcard Gothic", 28.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-        label2.Location = new Point(75, 5);
+        label2.Location = new Point(154, 28);
         label2.Name = "label2";
         label2.Size = new Size(565, 59);
         label2.TabIndex = 6;
@@ -100,16 +102,26 @@ partial class Form1
         // tableLayoutPanel1
         // 
         tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
+        tableLayoutPanel1.Controls.Add(label2, 0, 0);
+        tableLayoutPanel1.Controls.Add(button2, 0, 3);
+        tableLayoutPanel1.Controls.Add(button1, 0, 2);
+        tableLayoutPanel1.Controls.Add(button3, 0, 4);
+        tableLayoutPanel1.Controls.Add(label1, 2, 6);
         tableLayoutPanel1.Dock = DockStyle.Fill;
         tableLayoutPanel1.Location = new Point(0, 0);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 2;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.Size = new Size(800, 425);
+        tableLayoutPanel1.RowCount = 7;
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+        tableLayoutPanel1.Size = new Size(1085, 614);
         tableLayoutPanel1.TabIndex = 7;
         // 
         // Form1
@@ -117,18 +129,14 @@ partial class Form1
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackgroundImage = Properties.Resources.Fortnite;
-        ClientSize = new Size(800, 425);
+        ClientSize = new Size(1085, 614);
         Controls.Add(tableLayoutPanel1);
-        Controls.Add(label2);
-        Controls.Add(label1);
-        Controls.Add(button2);
-        Controls.Add(button1);
-        Controls.Add(button3);
         Name = "Form1";
         Text = "Form1";
         Load += Form1_Load;
+        tableLayoutPanel1.ResumeLayout(false);
+        tableLayoutPanel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
