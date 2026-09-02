@@ -2,8 +2,7 @@
 using System.Linq;
 namespace Proyecto.Core;
 
-public class Juego
-{
+public class Juego {
     int probabPiedra;
     int probabPapel;
     int probabTijera;
@@ -16,6 +15,7 @@ public class Juego
     public void guardarJugada(Jugada opcionActual)
     {
         jugadasGuardadas.Add(opcionActual.OpcionElegida);
+        int indexActual = jugadasGuardadas.Count-1;
     }
 
     
@@ -38,30 +38,63 @@ public class Juego
     }
 
 
-    public void procesarEleccion(Jugada enJuego)
+    public void procesarEleccion(Jugada enJuego, Opcion jugadaMaquina )
     {
         switch (enJuego.OpcionElegida)
         {
             case Opcion.Papel:
-                
+                compararElecciones(Opcion.Papel, jugadaMaquina);
             break;
             case Opcion.Piedra:
-
+                compararElecciones(Opcion.Piedra, jugadaMaquina);
             break;
             case Opcion.Tijera:
-            
+                compararElecciones(Opcion.Tijera, jugadaMaquina);
             break;
-
             default:
 
             break;
         }
     }
 
-    public void jugadaMaquina(List<Opcion> jugadasGuardadas, Jugada enJuego)
+    public Resultados compararElecciones(Opcion jugada, Opcion jugadaMaquina)
+    {
+        if( jugada == jugadaMaquina){
+            return Resultados.Empate;
+        }
+
+        if (jugada == Opcion.Papel){
+            if(jugadaMaquina == Opcion.Piedra) return Resultados.Ganador;
+            else return Resultados.Perdedor;
+        }
+        if (jugada == Opcion.Piedra){
+            if(jugadaMaquina == Opcion.Tijera) return Resultados.Ganador;
+            else return Resultados.Perdedor;
+        }
+        if (jugada == Opcion.Tijera){
+            if(jugadaMaquina == Opcion.Papel) return Resultados.Ganador;
+            else return Resultados.Perdedor;
+        }
+
+        return Resultados.Error;
+    }
+
+    public Opcion jugadaMaquina(List<Opcion> jugadasGuardadas)
     {
         Random numRand = new Random();
         int index = numRand.Next(0 , jugadasGuardadas.Count);
         Opcion eleccionMaquina = jugadasGuardadas[index];
+
+        return eleccionMaquina;
+    }
+
+    public int peekBack(List<Opcion> jugadasGuardadas, int indexActual){
+        int jugadaAnterior = (int)jugadasGuardadas[indexActual];
+        return jugadaAnterior;
+    }
+    public int peekTwoBack(List<Opcion> jugadasGuardadas, int indexActual)
+    {
+        int jugadaAntAnterior = (int)jugadasGuardadas[indexActual-1];
+        return jugadaAntAnterior;
     }
 }
