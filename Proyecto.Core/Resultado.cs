@@ -5,6 +5,4 @@ public enum Resultados
     Empate,
     Ganador,
     Perdedor,
-    Error,
-
 }
