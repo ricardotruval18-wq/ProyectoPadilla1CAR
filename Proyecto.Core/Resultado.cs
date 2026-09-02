@@ -4,6 +4,7 @@ public enum Resultados
 {
     Empate,
     Ganador,
-    Perdedor
+    Perdedor,
+    Error
 
 }

@@ -52,7 +52,7 @@ public class Juego {
                 compararElecciones(Opcion.Tijera, jugadaMaquina);
             break;
             default:
-
+            
             break;
         }
     }
